@@ -7,6 +7,7 @@ import { Task } from './task';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
+  editMode = false;
   taskName = 'Sugerowane zadanie: odkurzanie';
   taskDate='';
   config: { [key: string]: string | Date };
@@ -19,7 +20,7 @@ export class AppComponent {
     {
       name: 'Nauka Angulara',
       deadline: '2023-04-22',
-      done: false,
+      done: true,
     },
     {
       name: 'Sprzątanie kuwety',
@@ -56,6 +57,10 @@ export class AppComponent {
     this.tasks.push(task);
     this.taskName = '';
     this.taskDate = '';
+  }
+
+  switchEditMode(){
+    this.editMode = !this.editMode;
   }
 
 }
