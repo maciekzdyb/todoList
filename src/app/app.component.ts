@@ -28,6 +28,7 @@ export class AppComponent {
   ];
 
   constructor(){
+   
     this.config = {};
     setTimeout( () =>{
       this.config = {
@@ -43,9 +44,15 @@ export class AppComponent {
     this.tasks = [];
   }
   
-  onKeyUp(event: KeyboardEvent){
-    const target = event.target as HTMLInputElement;
-    console.log(target.value)
+
+
+  createTask(name: string, deadline: string){
+    const task: Task = {
+      name,                   // name: name <- to samo
+      deadline,
+      done: false,
+    };
+    this.tasks.push(task);
   }
 
 }
