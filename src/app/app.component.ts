@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Task } from './task';
 
 @Component({
   selector: 'app-root',
@@ -8,6 +9,23 @@ import { Component } from '@angular/core';
 export class AppComponent {
 
   config: { [key: string]: string | Date };
+  tasks: Task[] = [
+    {
+      name: 'Siłownia',
+      deadline: '2023-04-21',
+      done: false,
+    },
+    {
+      name: 'Nauka Angulara',
+      deadline: '2023-04-22',
+      done: false,
+    },
+    {
+      name: 'Sprzątanie kuwety',
+      deadline: '2023-04-23',
+      done: false,
+    },
+  ];
 
   constructor(){
     this.config = {};
@@ -18,9 +36,16 @@ export class AppComponent {
         date: new Date()
       }
     },500);
-    
-    
+        
+  }
+
+  clearTasks(){
+    this.tasks = [];
   }
   
+  onKeyUp(event: KeyboardEvent){
+    const target = event.target as HTMLInputElement;
+    console.log(target.value)
+  }
 
 }
